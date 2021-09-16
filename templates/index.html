@@ -1,0 +1,240 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoDe</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.ico" />
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+
+    <!-- this is the purple part -->
+
+    <div id="first">
+
+        <div id="nav">
+            <div id="inner-nav">
+                <a id="logo" href="#first">YoDe</a>
+                <ul>
+                   <li><a href="#third">Models</a></li>
+                    <li><a href="#seconde">Try It</a></li>
+                    <li><a href="#metric-box2">Framework</a></li>
+                </ul>
+            
+            </div>
+        </div>
+
+
+        <div class="first-text">
+            <div class="img">
+                <img class="fadeImg" src="../static/images/laptop4.png" alt="img">
+            </div>
+
+            <h1 class="fade-up">YoDo</h1>
+            <h3 class="fade-up">Le premier site web de détection de la langue des signes arabe avec Yolov5</h3>
+            <a href="#seconde">Testez-le</a>
+        </div>
+  
+    </div>
+
+    <!-- this is the black part -->
+   
+    <div id="seconde">
+
+        <div id="wrapper">
+            <h3 class="fade-up">Testez-le</h3>
+            <h2 class="fade-up">Sélectionnez une image et commencez la détection</h2>
+        </div>
+
+        <form method="POST" action="{{ url_for('predict',formid=1) }}" enctype="multipart/form-data"> 
+            <div id="firstDiv">
+                <input type="file" accept="image/*" id="inputfile" name="file" onchange="loadFile(event)">
+                <label for="inputfile">Choisissez une image ...</label>
+                <!-- {{ url_for('display', filename= filename) }} -->
+                <div id="result" style="text-align: center">
+                    <a href="{{ url_for('display', filename= filename) }}" target="_blank"><img class="enlarge" id="img-result" src="data:image/jpeg;base64,{{ img_data }}" alt=""></a>
+                    <br>
+                    <a id="download" href="data:image/jpeg;base64,{{ img_data }}" download>{{ download_text }}</a>
+                </div>
+                <button id="btn" type="submit">soumettre</button>
+            </div>
+            <div class="wrapper2">
+                <input type="radio" name="select" id="option-1" value="yolov5s" {{ check }}>
+                <input type="radio" name="select" id="option-2" value="yolov5m" {{ check2 }}>
+                <input type="radio" name="select" id="option-3" value="yolov5l" {{ check3 }}>
+                <label for="option-1" class="option option-1">
+                    <div class="dot"></div>
+                    <span>Yolov5s</span>
+                </label>
+                <label for="option-2" class="option option-2">
+                    <div class="dot"></div>
+                    <span>Yolov5m</span>
+                </label>
+                <label for="option-3" class="option option-3">
+                    <div class="dot"></div>
+                    <span>Yolov5L</span>
+                </label>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- this is the white part -->
+
+    <div id="third">
+
+        <div id="leftText" class="thirdText" >
+            <div id="img2">
+                <img class="fadeImg2" src="../static/images/ArSL2.png" alt="img">
+            </div>
+            
+            <h1>Langue des signes</h1>
+            <h3>La langue des signes (LS) est la principale méthode de communication entre 
+                les personnes malentendantes ou sourdes et les membres de leur communauté 
+                qui interagissent avec elles. Il existe certainement d'autres formes de 
+                communication, cependant, ces méthodes peuvent ne pas prendre en charge 
+                l'interaction naturelle, où le destinataire du message de communication 
+                n'a pas à apprendre la langue des signes ou toute autre méthode de 
+                communication.</h3>
+        </div>
+
+        <div id="rightText" class="thirdText">
+            <div id="img3">
+                <img class="fadeImg2" src="../static/images/ArSl1.png" alt="img">
+            </div>
+            
+            <h1>L'alphabet de la langue </h1>
+            <h3>La langue des signes arabe contient 28 lettres alphabétiques principales 
+                commençant par ''Alif'' et se terminant par ''Ya''</h3>
+
+                
+        </div>
+
+    </div>
+
+    <!-- this is the question's part -->
+
+    <div id="questions">
+
+        <h3 id="questions-h3">FAQ</h3>
+        <h2 id="questions-h2">avez-vous des questions ?</h2>
+
+        <div class="question-container">
+            <div class="quest">
+                <p onclick="onClick(this.id)" id="1" class="question">
+                    combien de versions différentes de la langue des signes arabe existent ?
+                    <i id="down1" class="fas fa-chevron-down"></i>
+                </p>
+                <div class="answer">Contrairement à l'arabe parlé, 
+                    les langues des signes arabes (ArSL) ne sont pas diglossiques. 
+                    Cela signifie qu'il existe une version d'une langue des signes 
+                    arabe utilisée par une communauté, plutôt que deux versions. </div>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="quest">
+                <p onclick="onClick(this.id)" id="2" class="question">
+                    La langue des signes arabe utilise-t-elle plus que des gestes de la main ?
+                    <i id="down1" class="fas fa-chevron-down"></i>
+                </p>
+                <div class="answer">En plus des « signes », la langue des signes arabe 
+                    comprend des expressions faciales, des gestes et un langage corporel 
+                    pour communiquer. La langue des signes utilise son propre système de 
+                    grammaire, qui implique des structures de phrases différentes de 
+                    l'arabe parlé. </div>
+            </div>
+        </div>
+        <div class="question-container">
+            <div class="quest">
+                <p onclick="onClick(this.id)" id="3" class="question">
+                    Quelle est la meilleure façon de communiquer avec une personne sourde si je ne connais pas la langue des signes ? ?
+                    <i id="down1" class="fas fa-chevron-down"></i>
+                </p>
+                <div class="answer">Les personnes sourdes veulent aussi vraiment faire partie
+                     du monde des entendants. Ils veulent communiquer. Ainsi, ils le
+                     découvriront par tous les moyens nécessaires. Qu'il s'agisse de 
+                     taper sur un téléphone, d'écrire, de vous apprendre à signer les 
+                     bases absolues, juste pour faire passer le message. </div>
+            </div> 
+        </div>
+        <div class="question-container">
+            <div class="quest">
+                <p onclick="onClick(this.id)" id="4" class="question">
+                    existe-t-il une langue des signes universelle ?
+                    <i id="down1" class="fas fa-chevron-down"></i>
+                </p>
+                <div class="answer">Non, même pas près. En réalité, il existe autant de 
+                    langues des signes que de langues parlées. De la langue des signes 
+                    américaine ou britannique à la langue des signes arabe, chacune est 
+                    aussi similaire aux autres que le chinois l'est à l'anglais.
+                    <br>
+                    Comme toute langue, la langue des signes s'est établie au sein 
+                    de certaines communautés et a été influencée par les influences 
+                    régionales et culturelles qui entouraient ses locuteurs natifs.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- this is the feed back part -->
+
+    <div id="feed-back">
+        <form id="all" method="POST" action="{{ url_for('predict',formid=2) }}" >
+            <h3>Donnez-nous votre avis !</h3>
+            <div id="feed">
+                <div id="info">
+                    <label for="y">votre nom</label>
+                    <input type="text" name="y" placeholder="Entrez votre nom ...">
+                    <label for="x">Votre e-mail</label>
+                    <input type="email" name="x" style="margin-bottom: 0;" placeholder="Entrer votre @email ...">
+                
+                </div>
+                <div id="text">
+                    <label for="z">Votre message</label>
+                    <input type="text" name="z" placeholder="Écrivez vos commentaires ...">
+                </div>
+            </div>
+            <input id="sub" type="submit">
+            <h4 style="color: {{ color }}; margin: 10px 0 0 0;">{{ text }}</h4>
+        </form>
+    </div>
+    
+    <!-- this is the footer part -->
+
+    <footer>
+        <p>YoDe</p>
+        <div><a target="_blank" href="https://github.com/tchikyy/Yode-finalVersion">Github</a> <a target="_blank" href="">facebook</a> <a target="_blank" href="https://colab.research.google.com/drive/1qPk_sMh2YWuRPb2Vhql6cSBoZH4ZWgFk#scrollTo=m3hIZmDa175z">google colab</a></div>
+    </footer>
+
+
+
+
+    <!-- Scripts -->
+
+    <!-- this Script is for showing the selected Image -->
+
+    <script>
+        var loadFile = function(event) {
+            var image = document.getElementById('img-result');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+
+    <!-- this Script is for the fade in effect -->
+
+    <script src="../static/app.js"></script>
+    <script src="https://kit.fontawesome.com/7bde2991a9.js" crossorigin="anonymous"></script>
+    
+    <!-- this script is for the auto scroll to the seconde/feed back part -->
+
+    {% if scrollToAnchor %}
+      <script>
+          document.addEventListener("DOMContentLoaded", function() {
+          document.location.hash = '#{{ scrollToAnchor }}';
+      });
+      </script>
+    {% endif %}
+</body>
+</html>
